@@ -23,18 +23,24 @@ girlscount=0
 totalall=0
 totalboys=0
 totalgirls=0
-for student in range(n):
-    totalall+=student.grade
+for student in students:
+    totalall+=student.grade()
     if student.gender == "M":
         boyscount+=1
-        totalboys +=student.grade
+        totalboys +=student.grade()
     if student.gender == "W":
         girlscount += 1
-        totalgirls += student.grade
+        totalgirls += student.grade()
 
 average=round(totalall/n, 2)
-b_average = round(totalboys/boyscount,2)
-g_average = round(totalgirls/girlscount,2)
+if(boyscount>0):
+    b_average = round(totalboys/boyscount,2)
+else:
+    b_average = 0
+if(girlscount>0):
+    g_average = round(totalgirls/girlscount,2)
+else:
+    g_average=0
 
 print("Average: ", average)
 print("Average for boys: ", b_average)
